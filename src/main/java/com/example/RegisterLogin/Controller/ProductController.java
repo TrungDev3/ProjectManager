@@ -18,7 +18,7 @@ import com.example.RegisterLogin.Service.ProductService;
 
 
 @RestController
-@RequestMapping("/product")
+@RequestMapping("/api/products")
 
 public class ProductController {
     
