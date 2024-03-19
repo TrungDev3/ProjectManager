@@ -8,30 +8,33 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.RegisterLogin.DAO.LoginDAO;
-import com.example.RegisterLogin.DAO.UserDAO;
+import com.example.RegisterLogin.Entity.Login;
+import com.example.RegisterLogin.Entity.User;
 import com.example.RegisterLogin.Repo.LoginRepo;
 import com.example.RegisterLogin.Service.UserService;
 
 @RestController
 @CrossOrigin
-@RequestMapping("api/user")
+@RequestMapping("/api")
 public class UserController {
 
     @Autowired
     private UserService  userService;
 
-    @PostMapping(path = "/register")
-    public String  registerUser(@RequestBody UserDAO userDAO) {
+    @PostMapping(path = "/register/user")
+    public String  registerUser(@RequestBody User user) {
+        return userService.addUser(user);
+    }
 
-        String id= userService.addUser(userDAO);
-        return id;
+    @PostMapping(path = "/register/admin")
+    public String registerAdmin(@RequestBody User user) {
+        return userService.addAdmin(user);
     }
 
     @PostMapping(path ="/login")
-    public ResponseEntity<?> loginUser(@RequestBody LoginDAO loginDAO)
+    public ResponseEntity<?> loginUser(@RequestBody Login login)
     {
-        LoginRepo loginRepo= userService.loginUser(loginDAO);
+        LoginRepo loginRepo= userService.loginUser(login);
         return ResponseEntity.ok(loginRepo);
     }
 

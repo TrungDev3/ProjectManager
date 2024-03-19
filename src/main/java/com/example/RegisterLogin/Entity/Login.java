@@ -1,16 +1,16 @@
-package com.example.RegisterLogin.DAO;
+package com.example.RegisterLogin.Entity;
 
-public class LoginDAO {
+public class Login {
 
     private String email;
     private String password;
 
-    public LoginDAO(String email, String password) {
+    public Login(String email, String password) {
         this.email = email;
         this.password = password;
     }
 
-    public LoginDAO() {
+    public Login() {
     }
 
     public String getEmail() {

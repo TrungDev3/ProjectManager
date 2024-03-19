@@ -19,22 +19,22 @@ public class ProductServiceImpl implements ProductService {
 
     @SuppressWarnings("null")
     @Override
-    public int createProduct(Product product) {
+    public String createProduct(Product product) {
         productRepository.save(product);
-        return 0;
+        return "Product create success";
     }
 
     @SuppressWarnings("null")
     @Override
-    public int updateProduct(Product product) {
+    public String updateProduct(Product product) {
         productRepository.save(product);
-        return 0;
+        return "Product update success";
     }
 
     @Override
-    public int deleteProduct(int Id) {
+    public String deleteProduct(int Id) {
         productRepository.deleteById(Id);
-        return 0;
+        return "Product delete success";
     }
 
     @Override

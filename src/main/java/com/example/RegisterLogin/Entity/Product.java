@@ -1,8 +1,6 @@
 package com.example.RegisterLogin.Entity;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -11,9 +9,7 @@ import jakarta.persistence.Table;
 public class Product {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id; // Thay vì String, đổi sang kiểu int
-
+    private int id; 
     private String name;
     private double price;
     private String image;

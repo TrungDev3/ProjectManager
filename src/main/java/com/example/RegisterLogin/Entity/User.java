@@ -2,6 +2,8 @@ package com.example.RegisterLogin.Entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,21 +23,21 @@ public class User {
     private String email;
     @Column(name="password", length = 255)
     private String password;
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User() {
         
     }
 
-
-    public User(int userid, String username, String email, String password) {
+    public User(int userid, String username, String email, String password, Role role) {
         this.userid = userid;
         this.username = username;
         this.email = email;
         this.password = password;
+        this.role = role;
     }
-
-
+    
     public int getUserid() {
         return userid;
     }
@@ -75,9 +77,14 @@ public class User {
         this.password = password;
     }
 
-    
-    
-    
+    public Role getRole() {
+        return role;
+    }
+
+    public void setRole(Role role) {
+        this.role = role;
+    }
+
     
 
    
